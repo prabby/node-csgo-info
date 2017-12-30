@@ -40,7 +40,7 @@ var Steam = require("steam"),
             	    rank = CSGOCli.Rank.getString(profile.account_profiles[0].ranking.rank_id);
                 	wins = profile.account_profiles[0].ranking.wins;
                 	p_rank = profile.account_profiles[0].player_level;
-	                logger.write(username+" "+password+" "+rank+" "+wins+" "+p_rank+" "+steamlink+"\n");
+	                logger.write(username+" "+password+" "+rank+" "+wins+" "+p_rank+" "+steamlink+"\r\n"); //Change newline character depending on OS
 	                util.log("Successfull fetched info for " + username);
 	                console.log("------------------------------------------");
             	    bot.disconnect();
