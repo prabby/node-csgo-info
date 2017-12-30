@@ -1,0 +1,33 @@
+{
+  "name": "csgoinfo",
+  "version": "1.0.0",
+  "description": "Fetch matchmaking info from CSGO game coordinator",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srihari-humbarwadi/node-csgo-info.git"
+  },
+  "keywords": [
+    "nodejs",
+    "steam",
+    "csgo",
+    "node-steam",
+    "node-csgo",
+    "csgo-matchmaking",
+    "csgo-rank"
+  ],
+  "author": "Srihari Humbarwadi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srihari-humbarwadi/node-csgo-info/issues"
+  },
+  "homepage": "https://github.com/srihari-humbarwadi/node-csgo-info#readme",
+  "dependencies": {
+    "csgo": "^1.5.7",
+    "readline-sync": "^1.4.7",
+    "steam": "^1.4.0"
+  }
+}
