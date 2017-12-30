@@ -8,7 +8,7 @@
 - node-steam
 - node-csgo
 
-
+## Usage
 - To run the bot, just pass the steamuserid and password as command line parameters to the bot.js script.
 
   ```node bot.js <username> <password>```
