@@ -9,7 +9,8 @@
 - node-csgo
 
 ##
-- To run the bot, just pass the steamuserid and password as command line parameters to the bot.js script
+- To run the bot, just pass the steamuserid and password as command line parameters to the bot.js script.
+
   ```node bot.js <username> <password>```
 - To run the bot in batch mode, a text file 'usernames.txt' should contain the usernames and passwords(space separated).Run the getinfo.sh to get the results written in 'output.txt'
 
