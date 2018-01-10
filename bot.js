@@ -3,7 +3,8 @@ var Steam = require("steam"),
 	util = require("util"),
     csgo = require("csgo"),
     csv = require("fast-csv"),
-    crypto = require("crypto");
+    community = require('steam-community'),
+    communityClient = community();
     var logger = fs.createWriteStream('output.csv', {
   	            flags: 'a'
   	            })
@@ -15,6 +16,7 @@ var Steam = require("steam"),
     	steamU = new Steam.SteamUser(botInstance),
     	steamF = new Steam.SteamFriends(botInstance),
     	s_level,
+    	hours,
     	csgoGameCoordinator = new Steam.SteamGameCoordinator(botInstance, 730),
     	gameCoordinatorHandle = new csgo.CSGOClient(steamU, csgoGameCoordinator, false),
     	logOnDetails = {
@@ -27,11 +29,17 @@ var Steam = require("steam"),
         	var rank;
         	var wins;
         	var p_rank;
+        	var hours;
         	steam64 = botInstance.steamID;
         	steamF.getSteamLevel([steam64], function(result){
         		s_level = result[steam64];
 
         	});
+
+        	communityClient.games(steam64, function(err, games){
+        		hours = games.hoursOnRecord
+				});
+
         	var steamlink ="http://steamcommunity.com/profiles/"+steam64;
         	if (response.eresult != Steam.EResult.OK) {
             	result ='Error in logging in!';
@@ -48,7 +56,7 @@ var Steam = require("steam"),
             	    rank = gameCoordinatorHandle.Rank.getString(profile.account_profiles[0].ranking.rank_id);
                 	wins = profile.account_profiles[0].ranking.wins;
                 	p_rank = profile.account_profiles[0].player_level;
-                	csv.write([[rank,p_rank,username,password,wins," ",s_level,steamlink," "," "]],{headers : true}).pipe(logger);
+                	csv.write([[rank,p_rank,username,password,wins,hours,s_level,steamlink," "," "]],{headers : true}).pipe(logger);
                 	logger.write("\r\n");
 	               // logger.write(username+" "+password+" "+rank+" "+wins+" "+p_rank+" "+steamlink+"\r\n");
 	                util.log("Successfully fetched info for " + username);
