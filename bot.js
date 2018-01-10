@@ -37,7 +37,10 @@ var Steam = require("steam"),
         	});
 
         	communityClient.games(steam64, function(err, games){
-        		hours = games.hoursOnRecord
+        		if(Array.isArray(games))
+        			hours = games[0].hoursOnRecord
+        		else
+        			hours = games.hoursOnRecord;
 				});
 
         	var steamlink ="http://steamcommunity.com/profiles/"+steam64;
