@@ -18,3 +18,6 @@
 - To run the bot in batch mode, a text file 'usernames.txt' should contain the usernames and passwords(space separated).Run the getinfo.sh to get the results written to 'output.csv', for windows use the provided powershell scriptl.
 
 
+## NOTE
+URL = `http://steamcommunity.com/inventory/${user}/${game}?l=english&count=5000`;
+Use this endpoint instead the one provided in steam-user-inventory
