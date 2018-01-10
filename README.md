@@ -9,6 +9,7 @@
 - node-csgo
 - fast-csv
 - steam-community
+- steam-user-inventory
 
 ## Usage
 - To run the bot, just pass the steamuserid and password as command line parameters to the bot.js script.
