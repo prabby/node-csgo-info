@@ -22,7 +22,8 @@ function getinfo(username, password) {
 
     console.log("----------------------------------------------------");
     util.log("Logging into " + username + " . . . .");
-    var botInstance = new Steam.SteamClient(),
+    
+        var botInstance = new Steam.SteamClient(),
         steamU = new Steam.SteamUser(botInstance),
         steamF = new Steam.SteamFriends(botInstance),
         steamWebLogOn = new SteamWebLogOn(botInstance, steamU),
@@ -69,15 +70,20 @@ function getinfo(username, password) {
             result = 'Error in logging in!';
         } else {
             util.log("Login for " + username + " Successfull");
+            
         }
+        
         var writeResults = function() {
             csv.write([
                 [rank, p_rank, username, password, wins, hours, s_level, steamlink, coins, medals]
+                
+                
             ], {
                 headers: true
             }).pipe(logger);
             logger.write("\r\n");
             util.log("Write to Sheet Successfull for " + args[0]);
+            
             console.log("----------------------------------------------------");
             botInstance.disconnect();
         }
@@ -123,6 +129,7 @@ function getinfo(username, password) {
 
         gameCoordinatorHandle.launch();
         util.log("Fetching info for " + username + " . . . . ");
+        
         gameCoordinatorHandle.on("ready", function() {
             gameCoordinatorHandle.playerProfileRequest(gameCoordinatorHandle.ToAccountID(botInstance.steamID));
             gameCoordinatorHandle.on("playerProfile", function(profile) {
