@@ -1,3 +1,10 @@
+******************************************
+*                                        *
+*          SRIHARI HUMBARWADI            *
+*                                        *
+*                                        *
+******************************************
+
 # node-csgo-info
 
 ## - This tool logs into your steam account with node-steam,fetches data from the CSGO game coordinator.
